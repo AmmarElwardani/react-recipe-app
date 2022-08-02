@@ -23,22 +23,28 @@ const Recipe = () => {
     <DetailWrapper>
       <div>
         <h2>{details.title}</h2>
-        <img src={details.image} alt="" />
+        <img
+          src={details.image}
+          alt=""
+          style={{ borderRadius: "2rem", maxWidth: "20rem" }}
+        />
       </div>
       <Info>
-        <Button
-          className={activeTab === "instructions" ? "active" : ""}
-          onClick={() => setActiveTab("instructions")}
-        >
-          Instructions
-        </Button>
-        <Button
-          className={activeTab === "ingredients" ? "active" : ""}
-          onClick={() => setActiveTab("ingredients")}
-        >
-          Ingredients
-        </Button>
-        
+        <div style={{display:"flex", padding: "1rem", alignItems:"center"}}>
+          <Button
+            className={activeTab === "instructions" ? "active" : ""}
+            onClick={() => setActiveTab("instructions")}
+          >
+            Instructions
+          </Button>
+          <Button
+            className={activeTab === "ingredients" ? "active" : ""}
+            onClick={() => setActiveTab("ingredients")}
+          >
+            Ingredients
+          </Button>
+        </div>
+
         {activeTab === "instructions" && (
           <div>
             <h3 dangerouslySetInnerHTML={{ __html: details.summary }}></h3>
@@ -75,6 +81,9 @@ const DetailWrapper = styled.div`
   }
   ul {
     margin-top: 2rem;
+  }
+  h3 {
+    font-size: 1rem;
   }
 `;
 
